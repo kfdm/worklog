@@ -8,6 +8,9 @@
 
 import SwiftCLI
 import Foundation
+import os
+
+private var task: Process!
 
 extension Command {
     func changeCurrentDirectoryPath(_ path: String) -> Bool {
@@ -15,13 +18,17 @@ extension Command {
     }
 
     func shellStatus(args: [String]) -> Int32 {
-        stderr <<< args.debugDescription
-        let task = Process()
+        os_log(.debug, "Launching %s", args)
+        task = Process()
+        task.launchPath = "/usr/bin/env"
         task.standardOutput = stdout.writeHandle
         task.standardError = stderr.writeHandle
-        task.launchPath = "/usr/bin/env"
         task.arguments = args
         task.launch()
+
+        signal(SIGINT) { _ in task.interrupt() }
+        signal(SIGTERM) { _ in task.terminate() }
+
         task.waitUntilExit()
         return task.terminationStatus
     }
