@@ -11,6 +11,6 @@ import SwiftCLI
 class ServerCommand: Command {
     let name = "server"
     func execute() throws {
-        try shell("hugo","server","--buildDrafts","--buildFuture")
+        try shell("hugo", "server", "--buildDrafts", "--buildFuture")
     }
 }

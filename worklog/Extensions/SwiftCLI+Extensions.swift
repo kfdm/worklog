@@ -10,7 +10,7 @@ import SwiftCLI
 import Foundation
 
 extension Command {
-    func changeCurrentDirectoryPath(_ path: String) -> Bool{
+    func changeCurrentDirectoryPath(_ path: String) -> Bool {
         return FileManager().changeCurrentDirectoryPath(path)
     }
 

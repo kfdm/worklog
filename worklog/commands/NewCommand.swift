@@ -21,7 +21,7 @@ class NewCommand: Command {
         try shell("git", "init")
         try shell("git", "submodule", "add", "https://github.com/Xzya/hugo-bootstrap.git", "themes/bootstrap")
         try shell("git", "submodule", "add", "https://github.com/kfdm/hugo-worklog", "themes/worklog")
-        
+
         stdout <<< "Configuring Theme"
         let inputYaml = try String(contentsOfFile: "config.yaml")
         var loadedDictionary = try Yams.load(yaml: inputYaml) as? [String: Any]
