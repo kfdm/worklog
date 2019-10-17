@@ -13,8 +13,8 @@
 		C19AD3F523587A86007879F8 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F423587A86007879F8 /* Makefile */; };
 		C19AD3F723587B94007879F8 /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F623587B94007879F8 /* ServerCommand.swift */; };
 		C19AD3FA23587C99007879F8 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C19AD3F923587C99007879F8 /* SwiftPackageProductDependency */; };
-		C19AD3FC23587D1B007879F8 /* Yams+Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3FB23587D1B007879F8 /* Yams+Extensions+.swift */; };
 		C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3FF23588087007879F8 /* ConfigCommand.swift */; };
+		C19AD402235887A3007879F8 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD401235887A3007879F8 /* Config.swift */; };
 		C1E88C5323586D410077176E /* NewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E88C5223586D410077176E /* NewCommand.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +38,8 @@
 		C19AD3F323587A86007879F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		C19AD3F423587A86007879F8 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
 		C19AD3F623587B94007879F8 /* ServerCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommand.swift; sourceTree = "<group>"; };
-		C19AD3FB23587D1B007879F8 /* Yams+Extensions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Yams+Extensions+.swift"; sourceTree = "<group>"; };
 		C19AD3FF23588087007879F8 /* ConfigCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCommand.swift; sourceTree = "<group>"; };
+		C19AD401235887A3007879F8 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		C1E88C5223586D410077176E /* NewCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,7 +60,6 @@
 			isa = PBXGroup;
 			children = (
 				C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */,
-				C19AD3FB23587D1B007879F8 /* Yams+Extensions+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -89,6 +88,7 @@
 			children = (
 				C10D094023586EB2000E4925 /* Extensions */,
 				C1E88C5123586D2D0077176E /* commands */,
+				C19AD401235887A3007879F8 /* Config.swift */,
 				C18140E02356F684000A7CD9 /* main.swift */,
 			);
 			path = worklog;
@@ -171,9 +171,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				C19AD3F723587B94007879F8 /* ServerCommand.swift in Sources */,
-				C19AD3FC23587D1B007879F8 /* Yams+Extensions+.swift in Sources */,
 				C1E88C5323586D410077176E /* NewCommand.swift in Sources */,
 				C18140E12356F684000A7CD9 /* main.swift in Sources */,
+				C19AD402235887A3007879F8 /* Config.swift in Sources */,
 				C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */,
 				C19AD3F523587A86007879F8 /* Makefile in Sources */,
 				C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */,

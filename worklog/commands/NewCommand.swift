@@ -23,10 +23,8 @@ class NewCommand: Command {
         try shell("git", "submodule", "add", "https://github.com/kfdm/hugo-worklog", "themes/worklog")
 
         stdout <<< "Configuring Theme"
-        let inputYaml = try String(contentsOfFile: "config.yaml")
-        var loadedDictionary = try Yams.load(yaml: inputYaml) as? [String: Any]
-        loadedDictionary!["theme"] = ["bootstrap", "worklog"]
-        let outputYaml: String = try Yams.dump(object: loadedDictionary)
-        try outputYaml.write(toFile: "config.yaml", atomically: true, encoding: .utf8)
+        var config = try RawConfig.load(path: "config.yaml")
+        config!["theme"] = ["bootstrap", "worklog"]
+        try config?.dump(path: "config.yaml")
     }
 }
