@@ -4,5 +4,7 @@ format:
 	synx worklog.xcodeproj
 	swiftlint autocorrect
 
-build:
-	worklog new build
+.PHONY:	test
+test:
+	rm -rf clean
+	worklog new test

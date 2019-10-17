@@ -9,8 +9,13 @@
 /* Begin PBXBuildFile section */
 		C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */; };
 		C18140E12356F684000A7CD9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18140E02356F684000A7CD9 /* main.swift */; };
-		C18140E92356F6A4000A7CD9 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */; };
-		C1E88C5323586D410077176E /* New.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E88C5223586D410077176E /* New.swift */; };
+		C18140E92356F6A4000A7CD9 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = C18140E82356F6A4000A7CD9 /* SwiftCLI */; };
+		C19AD3F523587A86007879F8 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F423587A86007879F8 /* Makefile */; };
+		C19AD3F723587B94007879F8 /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F623587B94007879F8 /* ServerCommand.swift */; };
+		C19AD3FA23587C99007879F8 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = C19AD3F923587C99007879F8 /* Yams */; };
+		C19AD3FC23587D1B007879F8 /* Yams+Extensions+.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3FB23587D1B007879F8 /* Yams+Extensions+.swift */; };
+		C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3FF23588087007879F8 /* ConfigCommand.swift */; };
+		C1E88C5323586D410077176E /* NewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E88C5223586D410077176E /* NewCommand.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -29,7 +34,13 @@
 		C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftCLI+Extensions.swift"; sourceTree = "<group>"; };
 		C18140DD2356F684000A7CD9 /* worklog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = worklog; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18140E02356F684000A7CD9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
-		C1E88C5223586D410077176E /* New.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = New.swift; sourceTree = "<group>"; };
+		C19AD3F223587A86007879F8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		C19AD3F323587A86007879F8 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		C19AD3F423587A86007879F8 /* Makefile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.make; path = Makefile; sourceTree = "<group>"; };
+		C19AD3F623587B94007879F8 /* ServerCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerCommand.swift; sourceTree = "<group>"; };
+		C19AD3FB23587D1B007879F8 /* Yams+Extensions+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Yams+Extensions+.swift"; sourceTree = "<group>"; };
+		C19AD3FF23588087007879F8 /* ConfigCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigCommand.swift; sourceTree = "<group>"; };
+		C1E88C5223586D410077176E /* NewCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommand.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,7 +48,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C18140E92356F6A4000A7CD9 /* BuildFile in Frameworks */,
+				C19AD3FA23587C99007879F8 /* Yams in Frameworks */,
+				C18140E92356F6A4000A7CD9 /* SwiftCLI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -48,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */,
+				C19AD3FB23587D1B007879F8 /* Yams+Extensions+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -55,6 +68,9 @@
 		C18140D42356F684000A7CD9 = {
 			isa = PBXGroup;
 			children = (
+				C19AD3F223587A86007879F8 /* LICENSE */,
+				C19AD3F423587A86007879F8 /* Makefile */,
+				C19AD3F323587A86007879F8 /* README.md */,
 				C18140DE2356F684000A7CD9 /* Products */,
 				C18140DF2356F684000A7CD9 /* worklog */,
 			);
@@ -81,7 +97,9 @@
 		C1E88C5123586D2D0077176E /* commands */ = {
 			isa = PBXGroup;
 			children = (
-				C1E88C5223586D410077176E /* New.swift */,
+				C1E88C5223586D410077176E /* NewCommand.swift */,
+				C19AD3F623587B94007879F8 /* ServerCommand.swift */,
+				C19AD3FF23588087007879F8 /* ConfigCommand.swift */,
 			);
 			path = commands;
 			sourceTree = "<group>";
@@ -103,7 +121,8 @@
 			);
 			name = worklog;
 			packageProductDependencies = (
-				C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */,
+				C18140E82356F6A4000A7CD9 /* SwiftCLI */,
+				C19AD3F923587C99007879F8 /* Yams */,
 			);
 			productName = worklog;
 			productReference = C18140DD2356F684000A7CD9 /* worklog */;
@@ -134,7 +153,8 @@
 			);
 			mainGroup = C18140D42356F684000A7CD9;
 			packageReferences = (
-				C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */,
+				C18140E72356F6A4000A7CD9 /* XCRemoteSwiftPackageReference "SwiftCLI" */,
+				C19AD3F823587C99007879F8 /* XCRemoteSwiftPackageReference "Yams" */,
 			);
 			productRefGroup = C18140DE2356F684000A7CD9 /* Products */;
 			projectDirPath = "";
@@ -150,8 +170,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C1E88C5323586D410077176E /* New.swift in Sources */,
+				C19AD3F723587B94007879F8 /* ServerCommand.swift in Sources */,
+				C19AD3FC23587D1B007879F8 /* Yams+Extensions+.swift in Sources */,
+				C1E88C5323586D410077176E /* NewCommand.swift in Sources */,
 				C18140E12356F684000A7CD9 /* main.swift in Sources */,
+				C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */,
+				C19AD3F523587A86007879F8 /* Makefile in Sources */,
 				C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,7 +342,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */ = {
+		C18140E72356F6A4000A7CD9 /* XCRemoteSwiftPackageReference "SwiftCLI" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jakeheis/SwiftCLI";
 			requirement = {
@@ -326,13 +350,26 @@
 				minimumVersion = 5.3.3;
 			};
 		};
+		C19AD3F823587C99007879F8 /* XCRemoteSwiftPackageReference "Yams" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jpsim/Yams.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */ = {
+		C18140E82356F6A4000A7CD9 /* SwiftCLI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */;
+			package = C18140E72356F6A4000A7CD9 /* XCRemoteSwiftPackageReference "SwiftCLI" */;
 			productName = SwiftCLI;
+		};
+		C19AD3F923587C99007879F8 /* Yams */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C19AD3F823587C99007879F8 /* XCRemoteSwiftPackageReference "Yams" */;
+			productName = Yams;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
