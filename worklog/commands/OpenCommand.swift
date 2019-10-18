@@ -17,14 +17,25 @@ class OpenCommand: Command {
     func execute() throws {
         let path: URL
         let basePath = UserDefaults.shared.path(for: .worklog)
-
         let config = WorklogConfig(path: basePath!.path)
-        if let lookup = date.value {
-            let parsed = DateComponents()
-            path = config.entry(date: parsed)
-        } else {
+
+        switch date.value {
+        case "today", nil:
             let today = Calendar.current.dateComponents(in: .current, from: .init())
             path = config.entry(date: today)
+        case "tomorrow":
+            let interval = TimeInterval(24 * 60 * 60)
+            let tomorrow = Calendar.current.dateComponents(in: .current, from: Date().addingTimeInterval(interval))
+            path = config.entry(date: tomorrow)
+        case "yesterday":
+            let interval = TimeInterval(24 * 60 * 60) * -1
+            let yesterday = Calendar.current.dateComponents(in: .current, from: Date().addingTimeInterval(interval))
+            path = config.entry(date: yesterday)
+        default:
+            let dateParser = DateFormatter()
+            dateParser.dateFormat = "yyyy-MM-dd"
+            let parsed = Calendar.current.dateComponents(in: .current, from: dateParser.date(from: date.value!)!)
+            path = config.entry(date: parsed)
         }
 
         if FileManager.default.fileExists(atPath: path.path) {
