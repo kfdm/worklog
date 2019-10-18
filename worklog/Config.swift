@@ -9,8 +9,26 @@
 import Foundation
 import Yams
 
-struct Config: Codable {
+struct HugoConfig: Codable {
     var theme: [String]?
+}
+
+struct WorklogConfig: Codable {
+    var path: String
+}
+
+extension WorklogConfig {
+    func entry(date: DateComponents) -> URL {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        var fp = URL(fileURLWithPath: path)
+        fp.appendPathComponent("content")
+        fp.appendPathComponent("worklog")
+        fp.appendPathComponent(date.year!.description)
+        fp.appendPathComponent(date.month!.description)
+        fp.appendPathComponent(formatter.string(from: date.date!) + ".markdown")
+        return fp
+    }
 }
 
 typealias RawConfig = [String: Any]

@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */; };
+		C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112EF872359634A00A982FC /* Defaults+Extensions.swift */; };
+		C154277423593B9700FD99A1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C154277323593B9700FD99A1 /* SwiftPackageProductDependency */; };
+		C154277623594FBB00FD99A1 /* OpenCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C154277523594FBB00FD99A1 /* OpenCommand.swift */; };
 		C18140E12356F684000A7CD9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18140E02356F684000A7CD9 /* main.swift */; };
 		C18140E92356F6A4000A7CD9 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */; };
 		C19AD3F523587A86007879F8 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F423587A86007879F8 /* Makefile */; };
@@ -32,6 +35,8 @@
 
 /* Begin PBXFileReference section */
 		C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftCLI+Extensions.swift"; sourceTree = "<group>"; };
+		C112EF872359634A00A982FC /* Defaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Extensions.swift"; sourceTree = "<group>"; };
+		C154277523594FBB00FD99A1 /* OpenCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCommand.swift; sourceTree = "<group>"; };
 		C18140DD2356F684000A7CD9 /* worklog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = worklog; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18140E02356F684000A7CD9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		C19AD3F223587A86007879F8 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
@@ -48,6 +53,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C154277423593B9700FD99A1 /* BuildFile in Frameworks */,
 				C19AD3FA23587C99007879F8 /* BuildFile in Frameworks */,
 				C18140E92356F6A4000A7CD9 /* BuildFile in Frameworks */,
 			);
@@ -59,6 +65,7 @@
 		C10D094023586EB2000E4925 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C112EF872359634A00A982FC /* Defaults+Extensions.swift */,
 				C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */,
 			);
 			path = Extensions;
@@ -99,6 +106,7 @@
 			children = (
 				C19AD3FF23588087007879F8 /* ConfigCommand.swift */,
 				C1E88C5223586D410077176E /* NewCommand.swift */,
+				C154277523594FBB00FD99A1 /* OpenCommand.swift */,
 				C19AD3F623587B94007879F8 /* ServerCommand.swift */,
 			);
 			path = commands;
@@ -123,6 +131,7 @@
 			packageProductDependencies = (
 				C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */,
 				C19AD3F923587C99007879F8 /* SwiftPackageProductDependency */,
+				C154277323593B9700FD99A1 /* SwiftPackageProductDependency */,
 			);
 			productName = worklog;
 			productReference = C18140DD2356F684000A7CD9 /* worklog */;
@@ -155,6 +164,7 @@
 			packageReferences = (
 				C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */,
 				C19AD3F823587C99007879F8 /* RemoteSwiftPackageReference */,
+				C154277223593B9700FD99A1 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = C18140DE2356F684000A7CD9 /* Products */;
 			projectDirPath = "";
@@ -172,9 +182,11 @@
 			files = (
 				C19AD3F723587B94007879F8 /* ServerCommand.swift in Sources */,
 				C1E88C5323586D410077176E /* NewCommand.swift in Sources */,
+				C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */,
 				C18140E12356F684000A7CD9 /* main.swift in Sources */,
 				C19AD402235887A3007879F8 /* Config.swift in Sources */,
 				C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */,
+				C154277623594FBB00FD99A1 /* OpenCommand.swift in Sources */,
 				C19AD3F523587A86007879F8 /* Makefile in Sources */,
 				C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */,
 			);
@@ -342,6 +354,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		C154277223593B9700FD99A1 /* RemoteSwiftPackageReference */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Rainbow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.1.5;
+			};
+		};
 		C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jakeheis/SwiftCLI";
@@ -361,6 +381,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C154277323593B9700FD99A1 /* SwiftPackageProductDependency */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C154277223593B9700FD99A1 /* RemoteSwiftPackageReference */;
+			productName = Rainbow;
+		};
 		C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */;
