@@ -12,12 +12,21 @@ import os
 
 private var task: Process!
 
+extension Process {
+    func throwOnError() throws {
+        waitUntilExit()
+        if terminationStatus != 0 {
+            throw CLI.Error.init(exitStatus: terminationStatus)
+        }
+    }
+}
+
 extension Command {
     func changeCurrentDirectoryPath(_ path: String) -> Bool {
         return FileManager().changeCurrentDirectoryPath(path)
     }
 
-    func shellStatus(args: [String]) -> Int32 {
+    func shell(_ args: String...) throws {
         os_log(.debug, "Launching %s", args)
         task = Process()
         task.launchPath = "/usr/bin/env"
@@ -29,14 +38,6 @@ extension Command {
         signal(SIGINT) { _ in task.interrupt() }
         signal(SIGTERM) { _ in task.terminate() }
 
-        task.waitUntilExit()
-        return task.terminationStatus
+        try task.throwOnError()
     }
-    func shell(_ args: String...) throws {
-        let return_code = shellStatus(args: args)
-        if return_code != 0 {
-            throw CLI.Error.init(exitStatus: return_code)
-        }
-    }
-
 }
