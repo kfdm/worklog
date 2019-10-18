@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C107FCD82359B839008EB8B4 /* ListCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C107FCD72359B839008EB8B4 /* ListCommand.swift */; };
 		C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */; };
 		C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112EF872359634A00A982FC /* Defaults+Extensions.swift */; };
 		C154277423593B9700FD99A1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C154277323593B9700FD99A1 /* SwiftPackageProductDependency */; };
@@ -34,6 +35,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C107FCD72359B839008EB8B4 /* ListCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCommand.swift; sourceTree = "<group>"; };
 		C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftCLI+Extensions.swift"; sourceTree = "<group>"; };
 		C112EF872359634A00A982FC /* Defaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Extensions.swift"; sourceTree = "<group>"; };
 		C154277523594FBB00FD99A1 /* OpenCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCommand.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				C19AD3FF23588087007879F8 /* ConfigCommand.swift */,
+				C107FCD72359B839008EB8B4 /* ListCommand.swift */,
 				C1E88C5223586D410077176E /* NewCommand.swift */,
 				C154277523594FBB00FD99A1 /* OpenCommand.swift */,
 				C19AD3F623587B94007879F8 /* ServerCommand.swift */,
@@ -185,6 +188,7 @@
 				C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */,
 				C18140E12356F684000A7CD9 /* main.swift in Sources */,
 				C19AD402235887A3007879F8 /* Config.swift in Sources */,
+				C107FCD82359B839008EB8B4 /* ListCommand.swift in Sources */,
 				C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */,
 				C154277623594FBB00FD99A1 /* OpenCommand.swift in Sources */,
 				C19AD3F523587A86007879F8 /* Makefile in Sources */,
