@@ -38,7 +38,7 @@ class OpenCommand: Command {
         if FileManager.default.fileExists(atPath: path.path) {
             try shell("open", path.path)
         } else {
-            changeCurrentDirectoryPath(config.path)
+            _ = changeCurrentDirectoryPath(config.path)
             try shell("hugo", "new", "--kind", "worklog", path.path)
             try shell("open", path.path)
         }
