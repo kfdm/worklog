@@ -8,6 +8,14 @@
 
 import SwiftCLI
 
+private let configFile = Key<String>("-c", "--config")
+extension Command {
+    var config: Key<String> {
+        return configFile
+    }
+}
+
 let main = CLI(name: "worklog", version: "1.0.0", description: "Tool for managing a hugo based worklog")
-main.commands = [NewCommand(), ServerCommand(), ConfigCommand()]
+main.commands = [NewCommand(), ServerCommand(), ConfigCommand(), OpenCommand()]
+main.globalOptions.append(configFile)
 main.goAndExit()
