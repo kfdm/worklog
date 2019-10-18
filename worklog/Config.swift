@@ -18,18 +18,21 @@ struct WorklogConfig: Codable {
 }
 
 extension WorklogConfig {
+    func filename(from date: Date) -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        return formatter.string(from: date) + ".markdown"
+    }
     func entry(for date: Date) -> URL {
         return entry(date: Calendar.current.dateComponents(in: .current, from: date))
     }
     func entry(date: DateComponents) -> URL {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
         var fp = URL(fileURLWithPath: path)
         fp.appendPathComponent("content")
         fp.appendPathComponent("worklog")
         fp.appendPathComponent(date.year!.description)
         fp.appendPathComponent(date.month!.description)
-        fp.appendPathComponent(formatter.string(from: date.date!) + ".markdown")
+        fp.appendPathComponent(filename(from: date.date!))
         return fp
     }
 
