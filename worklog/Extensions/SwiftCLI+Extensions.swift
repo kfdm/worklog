@@ -23,7 +23,7 @@ extension Process {
 
 extension Command {
     func changeCurrentDirectoryPath(_ path: String) -> Bool {
-        return FileManager().changeCurrentDirectoryPath(path)
+        return FileManager.default.changeCurrentDirectoryPath(path)
     }
 
     func shell(_ args: String...) throws {

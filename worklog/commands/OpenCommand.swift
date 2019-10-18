@@ -20,22 +20,19 @@ class OpenCommand: Command {
         let config = WorklogConfig(path: basePath!.path)
 
         switch date.value {
-        case "today", nil:
-            let today = Calendar.current.dateComponents(in: .current, from: .init())
-            path = config.entry(date: today)
-        case "tomorrow":
-            let interval = TimeInterval(24 * 60 * 60)
-            let tomorrow = Calendar.current.dateComponents(in: .current, from: Date().addingTimeInterval(interval))
-            path = config.entry(date: tomorrow)
-        case "yesterday":
-            let interval = TimeInterval(24 * 60 * 60) * -1
-            let yesterday = Calendar.current.dateComponents(in: .current, from: Date().addingTimeInterval(interval))
-            path = config.entry(date: yesterday)
+        case "t", "today", nil:
+            path = config.entry(for: .init())
+        case "to", "tomorrow":
+            let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: .init())!
+            path = config.entry(for: tomorrow)
+        case "y", "yesterday":
+            let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .init())!
+            path = config.entry(for: yesterday)
         default:
             let dateParser = DateFormatter()
             dateParser.dateFormat = "yyyy-MM-dd"
-            let parsed = Calendar.current.dateComponents(in: .current, from: dateParser.date(from: date.value!)!)
-            path = config.entry(date: parsed)
+            let lookup = dateParser.date(from: date.value!)!
+            path = config.entry(for: lookup)
         }
 
         if FileManager.default.fileExists(atPath: path.path) {

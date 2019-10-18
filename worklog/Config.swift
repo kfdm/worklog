@@ -18,6 +18,9 @@ struct WorklogConfig: Codable {
 }
 
 extension WorklogConfig {
+    func entry(for date: Date) -> URL {
+        return entry(date: Calendar.current.dateComponents(in: .current, from: date))
+    }
     func entry(date: DateComponents) -> URL {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
