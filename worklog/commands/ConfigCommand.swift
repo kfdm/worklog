@@ -14,8 +14,10 @@ class ConfigCommand: Command {
     let name = "config"
 
     func execute() throws {
-        let inputYaml = try String(contentsOfFile: "config.yaml")
-        var loadedDictionary = try Yams.load(yaml: inputYaml) as? [String: Any]
-        stdout <<< loadedDictionary.debugDescription
+        var basePath = UserDefaults.shared.path(for: .worklog)!
+        basePath.appendPathComponent("config.yaml")
+        print(basePath)
+        let config = try RawConfig.load(path: basePath)
+        print(config)
     }
 }

@@ -29,13 +29,20 @@ extension WorklogConfig {
         fp.appendPathComponent(formatter.string(from: date.date!) + ".markdown")
         return fp
     }
+
+    var hugoConfig: HugoConfig {
+        var configPath = URL(fileURLWithPath: path)
+        configPath.appendPathComponent("config.yaml")
+        let configYaml = try! String(contentsOf: configPath, encoding: .utf8)
+        return try! YAMLDecoder().decode(HugoConfig.self, from: configYaml, userInfo: [:])
+    }
 }
 
 typealias RawConfig = [String: Any]
 
 extension RawConfig {
-    static func load(path: String) throws -> RawConfig? {
-        let inputYaml = try String(contentsOfFile: "config.yaml")
+    static func load(path: URL) throws -> RawConfig? {
+        let inputYaml = try String(contentsOfFile: path.path)
         return try (Yams.load(yaml: inputYaml) as? [String: Any])
     }
 

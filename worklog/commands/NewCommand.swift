@@ -6,8 +6,8 @@
 //  Copyright © 2019 ST20638. All rights reserved.
 //
 
+import Foundation
 import SwiftCLI
-import Yams
 import Rainbow
 
 class NewCommand: Command {
@@ -15,8 +15,10 @@ class NewCommand: Command {
     let path = Parameter()
     func execute() throws {
         stdout <<< "Creating new hugo site".yellow
-        try shell("hugo", "new", "site", "--format", "yaml", path.value)
-        changeCurrentDirectoryPath(path.value)
+        let base = URL(fileURLWithPath: path.value)
+
+        try shell("hugo", "new", "site", "--format", "yaml", base.path)
+        changeCurrentDirectoryPath(base.path)
 
         stdout <<< "Checking out themes".yellow
         try shell("git", "init")
@@ -24,7 +26,8 @@ class NewCommand: Command {
         try shell("git", "submodule", "add", "https://github.com/kfdm/hugo-worklog", "themes/worklog")
 
         stdout <<< "Configuring Theme".yellow
-        var config = try RawConfig.load(path: "config.yaml")
+
+        var config = try RawConfig.load(path: base.appendingPathComponent("config.yaml"))
         config!["theme"] = ["bootstrap", "worklog"]
         try config?.dump(path: "config.yaml")
     }
