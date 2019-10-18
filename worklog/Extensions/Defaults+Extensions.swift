@@ -13,9 +13,9 @@ enum UserKeys: String {
 }
 
 extension UserDefaults {
-    static var shared = UserDefaults(suiteName: "net.kungfudiscomonkey.worklog")
+    static var shared = UserDefaults(suiteName: "net.kungfudiscomonkey.worklog")!
 
-    func path(for lookup: UserKeys) -> URL? {
-        return url(forKey: lookup.rawValue) ?? URL(fileURLWithPath: ".")
+    func path(for lookup: UserKeys, default defaultPath: String = FileManager.default.currentDirectoryPath) -> URL? {
+        return url(forKey: lookup.rawValue) ?? URL(fileURLWithPath: defaultPath)
     }
 }

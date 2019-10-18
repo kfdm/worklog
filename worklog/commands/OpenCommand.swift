@@ -16,11 +16,10 @@ class OpenCommand: Command {
 
     func execute() throws {
         let path: URL
-        let basePath = UserDefaults.shared?.path(for: .worklog)
+        let basePath = UserDefaults.shared.path(for: .worklog)
 
         let config = WorklogConfig(path: basePath!.path)
         if let lookup = date.value {
-            print(lookup)
             let parsed = DateComponents()
             path = config.entry(date: parsed)
         } else {
