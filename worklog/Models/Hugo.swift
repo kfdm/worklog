@@ -32,22 +32,18 @@ extension Hugo {
         return try! HugoConfig.load(from: basePath.appendingPathComponent("config.yaml"))
     }
 
-    func filename(from date: Date) -> String {
+    func worklog(for date: Date) -> URL {
+        return worklog(for: Calendar.current.dateComponents(in: .current, from: date))
+    }
+    func worklog(for date: DateComponents) -> URL {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
-        return formatter.string(from: date) + ".markdown"
-    }
 
-    func worklog(for date: Date) -> URL {
-        return worklog(date: Calendar.current.dateComponents(in: .current, from: date))
-    }
-    func worklog(date: DateComponents) -> URL {
-        return basePath
-            .appendingPathComponent("content")
-            .appendingPathComponent("worklog")
+        return worklogPath
             .appendingPathComponent(String(format: "%04d", arguments: [date.year!]))
             .appendingPathComponent(String(format: "%02d", arguments: [date.month!]))
-            .appendingPathComponent(filename(from: date.date!))
+            .appendingPathComponent(formatter.string(from: date.date!))
+            .appendingPathExtension("markdown")
     }
 
     func entries() throws -> [URL] {
