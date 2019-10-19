@@ -3,7 +3,7 @@
 //  worklog
 //
 //  Created by Paul Traylor on 2019/10/19.
-//  Copyright © 2019 ST20638. All rights reserved.
+//  Copyright © 2019 Paul Traylor. All rights reserved.
 //
 
 import SwiftCLI
