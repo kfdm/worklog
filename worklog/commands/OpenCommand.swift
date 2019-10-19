@@ -17,28 +17,28 @@ class OpenCommand: Command {
     func execute() throws {
         let path: URL
         let basePath = UserDefaults.shared.path(for: .worklog)!
-        let config = WorklogConfig(basePath: basePath)
+        let site = Hugo.default
 
         switch date.value {
         case "t", "today", nil:
-            path = config.entry(for: .init())
+            path = site.worklog(for: .init())
         case "to", "tomorrow":
             let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: .init())!
-            path = config.entry(for: tomorrow)
+            path = site.worklog(for: tomorrow)
         case "y", "yesterday":
             let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .init())!
-            path = config.entry(for: yesterday)
+            path = site.worklog(for: yesterday)
         default:
             let dateParser = DateFormatter()
             dateParser.dateFormat = "yyyy-MM-dd"
             let lookup = dateParser.date(from: date.value!)!
-            path = config.entry(for: lookup)
+            path = site.worklog(for: lookup)
         }
 
         if FileManager.default.fileExists(atPath: path.path) {
             try shell("open", path.path)
         } else {
-            _ = changeCurrentDirectoryPath(config.basePath.path)
+            _ = changeCurrentDirectoryPath(site.basePath.path)
             try shell("hugo", "new", "--kind", "worklog", path.path)
             try shell("open", path.path)
         }

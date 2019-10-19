@@ -8,3 +8,7 @@ format:
 test:
 	rm -rf clean
 	worklog new test
+
+.PHONY:	xcode
+xcode:
+	open worklog.xcodeproj

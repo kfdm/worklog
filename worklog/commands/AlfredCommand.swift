@@ -41,7 +41,7 @@ class AlfredRunCommand: Command {
         var dates = [String]()
         var items = [AlfredRow]()
 
-        var basePath =  WorklogConfig.default.basePath
+        var basePath =  Hugo.default.basePath
         basePath.appendPathComponent("content")
         basePath.appendPathComponent("worklog")
 
@@ -60,7 +60,7 @@ class AlfredRunCommand: Command {
         dates.append(formatter.string(from: yesterday ))
 
         // Get list of path URLs
-        try WorklogConfig.default.entries()
+        try Hugo.default.entries()
             // Split on . to find just the date
             .map { $0.lastPathComponent.components(separatedBy: ".").first! }
             // Find the dates we haven't added
