@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8703287D235AC85000931D17 /* BitbarCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703287C235AC85000931D17 /* BitbarCommand.swift */; };
+		8703287F235ACD6200931D17 /* AlfredCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8703287E235ACD6200931D17 /* AlfredCommand.swift */; };
 		C107FCD82359B839008EB8B4 /* ListCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C107FCD72359B839008EB8B4 /* ListCommand.swift */; };
 		C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */; };
 		C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112EF872359634A00A982FC /* Defaults+Extensions.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		8703287C235AC85000931D17 /* BitbarCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitbarCommand.swift; sourceTree = "<group>"; };
+		8703287E235ACD6200931D17 /* AlfredCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlfredCommand.swift; sourceTree = "<group>"; };
 		C107FCD72359B839008EB8B4 /* ListCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCommand.swift; sourceTree = "<group>"; };
 		C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftCLI+Extensions.swift"; sourceTree = "<group>"; };
 		C112EF872359634A00A982FC /* Defaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Extensions.swift"; sourceTree = "<group>"; };
@@ -108,6 +110,7 @@
 		C1E88C5123586D2D0077176E /* commands */ = {
 			isa = PBXGroup;
 			children = (
+				8703287E235ACD6200931D17 /* AlfredCommand.swift */,
 				8703287C235AC85000931D17 /* BitbarCommand.swift */,
 				C19AD3FF23588087007879F8 /* ConfigCommand.swift */,
 				C107FCD72359B839008EB8B4 /* ListCommand.swift */,
@@ -197,6 +200,7 @@
 				C19AD3F523587A86007879F8 /* Makefile in Sources */,
 				C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */,
 				8703287D235AC85000931D17 /* BitbarCommand.swift in Sources */,
+				8703287F235ACD6200931D17 /* AlfredCommand.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

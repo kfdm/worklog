@@ -16,6 +16,6 @@ extension Command {
 }
 
 let main = CLI(name: "worklog", version: "1.0.0", description: "Tool for managing a hugo based worklog")
-main.commands = [NewCommand(), ServerCommand(), ConfigCommand(), OpenCommand(), ListGroup(), BitbarGroup()]
+main.commands = [NewCommand(), ServerCommand(), ConfigCommand(), OpenCommand(), ListGroup(), BitbarGroup(), AlfredGroup()]
 main.globalOptions.append(configFile)
 main.goAndExit()

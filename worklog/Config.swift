@@ -18,6 +18,10 @@ struct WorklogConfig: Codable {
 }
 
 extension WorklogConfig {
+    static var `default` : WorklogConfig {
+        let basePath = UserDefaults.shared.path(for: .worklog)!
+        return WorklogConfig(basePath: basePath)
+    }
     func filename(from date: Date) -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd"
@@ -33,6 +37,18 @@ extension WorklogConfig {
             .appendingPathComponent(String(format: "%04d", arguments: [date.year!]))
             .appendingPathComponent(String(format: "%02d", arguments: [date.month!]))
             .appendingPathComponent(filename(from: date.date!))
+    }
+
+    var worklogPath: URL {
+        return basePath
+            .appendingPathComponent("content")
+            .appendingPathComponent("worklog")
+    }
+
+    func entries() throws -> [URL] {
+        return try FileManager.default.subpathsOfDirectory(atPath: worklogPath.path) // [String]
+            .map { worklogPath.appendingPathComponent($0) } // URL
+            .filter { ["markdown", "md"].contains($0.pathExtension) }
     }
 
     var hugoConfig: HugoConfig {
