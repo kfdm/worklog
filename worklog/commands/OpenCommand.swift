@@ -16,7 +16,6 @@ class OpenCommand: Command {
 
     func execute() throws {
         let path: URL
-        let basePath = UserDefaults.shared.path(for: .worklog)!
         let site = Hugo.default
 
         switch date.value {
@@ -38,7 +37,7 @@ class OpenCommand: Command {
         if FileManager.default.fileExists(atPath: path.path) {
             try shell("open", path.path)
         } else {
-            _ = changeCurrentDirectoryPath(site.basePath.path)
+            _ = Process.changeCurrentDirectoryPath(site.basePath)
             try shell("hugo", "new", "--kind", "worklog", path.path)
             try shell("open", path.path)
         }

@@ -19,13 +19,12 @@ extension Process {
             throw CLI.Error.init(exitStatus: terminationStatus)
         }
     }
+    static func changeCurrentDirectoryPath(_ path: URL) -> Bool {
+        return FileManager.default.changeCurrentDirectoryPath(path.path)
+    }
 }
 
 extension Command {
-    func changeCurrentDirectoryPath(_ path: String) -> Bool {
-        return FileManager.default.changeCurrentDirectoryPath(path)
-    }
-
     func shell(_ args: String...) throws {
         os_log(.debug, "Launching %s", args)
         task = Process()

@@ -17,7 +17,7 @@ class ConfigCommand: Command {
         var basePath = UserDefaults.shared.path(for: .worklog)!
         basePath.appendPathComponent("config.yaml")
         print(basePath)
-        let config = try RawConfig.load(path: basePath)
-        print(config)
+        let config = try RawConfig.load(path: basePath)!
+        print(config.debugDescription)
     }
 }

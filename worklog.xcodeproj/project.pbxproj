@@ -14,13 +14,13 @@
 		C107FCD82359B839008EB8B4 /* ListCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C107FCD72359B839008EB8B4 /* ListCommand.swift */; };
 		C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */; };
 		C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112EF872359634A00A982FC /* Defaults+Extensions.swift */; };
-		C154277423593B9700FD99A1 /* Rainbow in Frameworks */ = {isa = PBXBuildFile; productRef = C154277323593B9700FD99A1 /* Rainbow */; };
+		C154277423593B9700FD99A1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C154277323593B9700FD99A1 /* SwiftPackageProductDependency */; };
 		C154277623594FBB00FD99A1 /* OpenCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C154277523594FBB00FD99A1 /* OpenCommand.swift */; };
 		C18140E12356F684000A7CD9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18140E02356F684000A7CD9 /* main.swift */; };
-		C18140E92356F6A4000A7CD9 /* SwiftCLI in Frameworks */ = {isa = PBXBuildFile; productRef = C18140E82356F6A4000A7CD9 /* SwiftCLI */; };
+		C18140E92356F6A4000A7CD9 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */; };
 		C19AD3F523587A86007879F8 /* Makefile in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F423587A86007879F8 /* Makefile */; };
 		C19AD3F723587B94007879F8 /* ServerCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3F623587B94007879F8 /* ServerCommand.swift */; };
-		C19AD3FA23587C99007879F8 /* Yams in Frameworks */ = {isa = PBXBuildFile; productRef = C19AD3F923587C99007879F8 /* Yams */; };
+		C19AD3FA23587C99007879F8 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C19AD3F923587C99007879F8 /* SwiftPackageProductDependency */; };
 		C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C19AD3FF23588087007879F8 /* ConfigCommand.swift */; };
 		C1E88C5323586D410077176E /* NewCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E88C5223586D410077176E /* NewCommand.swift */; };
 /* End PBXBuildFile section */
@@ -61,9 +61,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C154277423593B9700FD99A1 /* Rainbow in Frameworks */,
-				C19AD3FA23587C99007879F8 /* Yams in Frameworks */,
-				C18140E92356F6A4000A7CD9 /* SwiftCLI in Frameworks */,
+				C154277423593B9700FD99A1 /* BuildFile in Frameworks */,
+				C19AD3FA23587C99007879F8 /* BuildFile in Frameworks */,
+				C18140E92356F6A4000A7CD9 /* BuildFile in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -73,8 +73,8 @@
 		87BBF4A9235B192400C46FB7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				87BBF4AA235B193800C46FB7 /* Hugo.swift */,
 				87BBF4AC235B1B3300C46FB7 /* Config.swift */,
+				87BBF4AA235B193800C46FB7 /* Hugo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -110,8 +110,8 @@
 		C18140DF2356F684000A7CD9 /* worklog */ = {
 			isa = PBXGroup;
 			children = (
-				87BBF4A9235B192400C46FB7 /* Models */,
 				C10D094023586EB2000E4925 /* Extensions */,
+				87BBF4A9235B192400C46FB7 /* Models */,
 				C1E88C5123586D2D0077176E /* commands */,
 				C18140E02356F684000A7CD9 /* main.swift */,
 			);
@@ -149,9 +149,9 @@
 			);
 			name = worklog;
 			packageProductDependencies = (
-				C18140E82356F6A4000A7CD9 /* SwiftCLI */,
-				C19AD3F923587C99007879F8 /* Yams */,
-				C154277323593B9700FD99A1 /* Rainbow */,
+				C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */,
+				C19AD3F923587C99007879F8 /* SwiftPackageProductDependency */,
+				C154277323593B9700FD99A1 /* SwiftPackageProductDependency */,
 			);
 			productName = worklog;
 			productReference = C18140DD2356F684000A7CD9 /* worklog */;
@@ -182,9 +182,9 @@
 			);
 			mainGroup = C18140D42356F684000A7CD9;
 			packageReferences = (
-				C18140E72356F6A4000A7CD9 /* XCRemoteSwiftPackageReference "SwiftCLI" */,
-				C19AD3F823587C99007879F8 /* XCRemoteSwiftPackageReference "Yams" */,
-				C154277223593B9700FD99A1 /* XCRemoteSwiftPackageReference "Rainbow" */,
+				C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */,
+				C19AD3F823587C99007879F8 /* RemoteSwiftPackageReference */,
+				C154277223593B9700FD99A1 /* RemoteSwiftPackageReference */,
 			);
 			productRefGroup = C18140DE2356F684000A7CD9 /* Products */;
 			projectDirPath = "";
@@ -378,7 +378,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C154277223593B9700FD99A1 /* XCRemoteSwiftPackageReference "Rainbow" */ = {
+		C154277223593B9700FD99A1 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Rainbow";
 			requirement = {
@@ -386,7 +386,7 @@
 				minimumVersion = 3.1.5;
 			};
 		};
-		C18140E72356F6A4000A7CD9 /* XCRemoteSwiftPackageReference "SwiftCLI" */ = {
+		C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jakeheis/SwiftCLI";
 			requirement = {
@@ -394,7 +394,7 @@
 				minimumVersion = 5.3.3;
 			};
 		};
-		C19AD3F823587C99007879F8 /* XCRemoteSwiftPackageReference "Yams" */ = {
+		C19AD3F823587C99007879F8 /* RemoteSwiftPackageReference */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/jpsim/Yams.git";
 			requirement = {
@@ -405,19 +405,19 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C154277323593B9700FD99A1 /* Rainbow */ = {
+		C154277323593B9700FD99A1 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C154277223593B9700FD99A1 /* XCRemoteSwiftPackageReference "Rainbow" */;
+			package = C154277223593B9700FD99A1 /* RemoteSwiftPackageReference */;
 			productName = Rainbow;
 		};
-		C18140E82356F6A4000A7CD9 /* SwiftCLI */ = {
+		C18140E82356F6A4000A7CD9 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C18140E72356F6A4000A7CD9 /* XCRemoteSwiftPackageReference "SwiftCLI" */;
+			package = C18140E72356F6A4000A7CD9 /* RemoteSwiftPackageReference */;
 			productName = SwiftCLI;
 		};
-		C19AD3F923587C99007879F8 /* Yams */ = {
+		C19AD3F923587C99007879F8 /* SwiftPackageProductDependency */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = C19AD3F823587C99007879F8 /* XCRemoteSwiftPackageReference "Yams" */;
+			package = C19AD3F823587C99007879F8 /* RemoteSwiftPackageReference */;
 			productName = Yams;
 		};
 /* End XCSwiftPackageProductDependency section */

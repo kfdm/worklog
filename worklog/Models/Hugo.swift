@@ -28,7 +28,7 @@ extension Hugo {
 
 // MARK: — File Functions
 extension Hugo {
-    var config : HugoConfig {
+    var config: HugoConfig {
         return try! HugoConfig.load(from: basePath.appendingPathComponent("config.yaml"))
     }
 

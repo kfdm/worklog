@@ -9,7 +9,6 @@
 import Foundation
 import Yams
 
-
 struct HugoConfig: Codable {
     var theme: [String]?
 }
@@ -20,7 +19,6 @@ extension HugoConfig {
         return try! YAMLDecoder().decode(HugoConfig.self, from: configYaml, userInfo: [:])
     }
 }
-
 
 typealias RawConfig = [String: Any]
 

@@ -18,7 +18,7 @@ class NewCommand: Command {
         let base = URL(fileURLWithPath: path.value)
 
         try shell("hugo", "new", "site", "--format", "yaml", base.path)
-        changeCurrentDirectoryPath(base.path)
+        _ = Process.changeCurrentDirectoryPath(base)
 
         stdout <<< "Checking out themes".yellow
         try shell("git", "init")
