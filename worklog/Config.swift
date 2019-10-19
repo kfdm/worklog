@@ -14,7 +14,7 @@ struct HugoConfig: Codable {
 }
 
 struct WorklogConfig: Codable {
-    var path: String
+    var basePath: URL
 }
 
 extension WorklogConfig {
@@ -27,18 +27,17 @@ extension WorklogConfig {
         return entry(date: Calendar.current.dateComponents(in: .current, from: date))
     }
     func entry(date: DateComponents) -> URL {
-        var fp = URL(fileURLWithPath: path)
-        fp.appendPathComponent("content")
-        fp.appendPathComponent("worklog")
-        fp.appendPathComponent(date.year!.description)
-        fp.appendPathComponent(date.month!.description)
-        fp.appendPathComponent(filename(from: date.date!))
-        return fp
+        return basePath
+            .appendingPathComponent("content")
+            .appendingPathComponent("worklog")
+            .appendingPathComponent(String(format: "%04d", arguments: [date.year!]))
+            .appendingPathComponent(String(format: "%02d", arguments: [date.month!]))
+            .appendingPathComponent(filename(from: date.date!))
     }
 
     var hugoConfig: HugoConfig {
-        var configPath = URL(fileURLWithPath: path)
-        configPath.appendPathComponent("config.yaml")
+        let configPath = basePath
+            .appendingPathComponent("config.yaml")
         let configYaml = try! String(contentsOf: configPath, encoding: .utf8)
         return try! YAMLDecoder().decode(HugoConfig.self, from: configYaml, userInfo: [:])
     }
