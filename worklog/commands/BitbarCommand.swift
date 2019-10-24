@@ -38,8 +38,8 @@ class BitbarRunCommand: Command {
         stdout <<< "---"
 
         try Hugo.default.entries()
-            .sorted { $0.path.path < $1.path.path }
-            .suffix(10)
+            .sorted { $0.path.path > $1.path.path }
+            .prefix(10)
             .forEach({ (wl) in
                 stdout <<< "\(wl.frontmatter.title) | href=\"\(wl.path.description)\""
         })
