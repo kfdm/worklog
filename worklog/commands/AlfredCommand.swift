@@ -19,8 +19,26 @@ struct AlfredRow: Codable {
     let icon: AlfredIcon?
 }
 
+extension AlfredRow {
+    init (title: String, date: Date, icon: AlfredIcon? = nil) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+
+        self.title = title
+        self.arg = formatter.string(from: date)
+        self.icon = icon
+    }
+}
+
 struct AlfredJson: Codable {
     let items: [AlfredRow]
+}
+
+extension AlfredJson {
+    var json: String {
+        let jsonData = try! JSONEncoder().encode(self)
+        return String(data: jsonData, encoding: .utf8)!
+    }
 }
 
 class AlfredInstallCommand: Command {
@@ -31,48 +49,38 @@ class AlfredInstallCommand: Command {
         guard let alfred = UserDefaults.init(suiteName: "com.runningwithcrayons.Alfred") else {
             throw CLI.Error(message: "Alfred not found")
         }
-
     }
 }
 
 class AlfredRunCommand: Command {
     let name = "run"
+    let shortDescription = "Output for Alfred filter workflow"
     func execute() throws {
-        var dates = [String]()
         var items = [AlfredRow]()
 
-        var basePath =  Hugo.default.basePath
-        basePath.appendPathComponent("content")
-        basePath.appendPathComponent("worklog")
-
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd"
-
-        items.append(AlfredRow(arg: formatter.string(from: Date()), title: "Worklog for Today", icon: nil))
-        dates.append(formatter.string(from: Date()))
+        items.append(AlfredRow(title: "Worklog for Today", date: Date()))
 
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: .init())!
-        items.append(AlfredRow(arg: formatter.string(from: tomorrow ), title: "Worklog for Tomorrow", icon: nil))
-        dates.append(formatter.string(from: tomorrow ))
+        items.append(AlfredRow(title: "Worklog for Tomorrow", date: tomorrow))
 
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .init())!
-        items.append(AlfredRow(arg: formatter.string(from: yesterday ), title: "Worklog for Yesterday", icon: nil))
-        dates.append(formatter.string(from: yesterday ))
+        items.append(AlfredRow(title: "Worklog for Yesterday", date: yesterday))
 
+        // Get the dates we've artifically added
+        let dates = items.map { $0.arg }
         // Get list of path URLs
-        try Hugo.default.entries()
-            // Split on . to find just the date
-            .map { $0.path.lastPathComponent.components(separatedBy: ".").first! }
+        items.append(contentsOf: try Hugo.default.entries()
+            // Sort by path
+            .sorted { $0.path.path > $1.path.path}
+            // Get the last 10
+            .prefix(10)
             // Find the dates we haven't added
-            .filter { !dates.contains($0) }
+            .filter { !dates.contains($0.frontmatter.date!) }
             // Then add them to our row
-            .forEach { (path) in
-                items.append(AlfredRow(arg: path, title: path, icon: nil))
-        }
+            .map { AlfredRow(arg: $0.frontmatter.date!, title: $0.frontmatter.title, icon: nil) }
+        )
 
-        let jsonData = try! JSONEncoder().encode(AlfredJson(items: items))
-        let jsonString = String(data: jsonData, encoding: .utf8)!
-        stdout <<< jsonString
+        stdout <<< AlfredJson(items: Array(items.prefix(10))).json
     }
 }
 
