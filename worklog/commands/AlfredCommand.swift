@@ -61,10 +61,10 @@ class AlfredRunCommand: Command {
         items.append(AlfredRow(title: "Worklog for Today", date: Date()))
 
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: .init())!
-        items.append(AlfredRow(title: "Worklog for Tomorrow", date: tomorrow))
+        items.append(AlfredRow(title: "Worklog for Tomorrow", date: tomorrow, icon: AlfredIcon(path: "tomorrow.png")))
 
         let yesterday = Calendar.current.date(byAdding: .day, value: -1, to: .init())!
-        items.append(AlfredRow(title: "Worklog for Yesterday", date: yesterday))
+        items.append(AlfredRow(title: "Worklog for Yesterday", date: yesterday, icon: AlfredIcon(path: "yesterday.png")))
 
         // Get the dates we've artifically added
         let dates = items.map { $0.arg }
