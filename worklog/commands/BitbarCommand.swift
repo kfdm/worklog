@@ -20,14 +20,29 @@ class BitbarInstallCommand: Command {
         guard let pluginDirectory =  bitbar.string(forKey: "pluginsDirectory") else {
             throw CLI.Error(message: "Unable to find Plugin Directory")
         }
-        print(pluginDirectory)
+        let scriptPath = URL(fileURLWithPath: pluginDirectory)
+            .appendingPathComponent("worklog.5m.sh")
+        let command = ProcessInfo.processInfo.arguments.first!
+        let script = "#!/bin/sh\nexec \(command) bitbar run"
+        try script.write(to: scriptPath, atomically: true, encoding: .utf8)
+        try FileManager.default.setAttributes([.posixPermissions: 0o755], ofItemAtPath: scriptPath.path)
     }
 }
 
 class BitbarRunCommand: Command {
     let name = "run"
     func execute() throws {
-        throw CLI.Error(message: "Not yet implemented")
+        stdout <<< ":pencil:"
+        stdout <<< "---"
+        stdout <<< "RELOAD | refresh=true"
+        stdout <<< "---"
+
+        try Hugo.default.entries()
+            .sorted { $0.path.path < $1.path.path }
+            .suffix(10)
+            .forEach({ (wl) in
+                stdout <<< "\(wl.frontmatter.title) | href=\"\(wl.path.description)\""
+        })
     }
 }
 

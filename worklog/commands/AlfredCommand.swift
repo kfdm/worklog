@@ -62,7 +62,7 @@ class AlfredRunCommand: Command {
         // Get list of path URLs
         try Hugo.default.entries()
             // Split on . to find just the date
-            .map { $0.lastPathComponent.components(separatedBy: ".").first! }
+            .map { $0.path.lastPathComponent.components(separatedBy: ".").first! }
             // Find the dates we haven't added
             .filter { !dates.contains($0) }
             // Then add them to our row

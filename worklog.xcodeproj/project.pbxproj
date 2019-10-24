@@ -14,6 +14,8 @@
 		C107FCD82359B839008EB8B4 /* ListCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C107FCD72359B839008EB8B4 /* ListCommand.swift */; };
 		C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */; };
 		C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C112EF872359634A00A982FC /* Defaults+Extensions.swift */; };
+		C14999622361ACF000F7DDEF /* Worklog.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14999612361ACF000F7DDEF /* Worklog.swift */; };
+		C14999642361B55100F7DDEF /* Frontmatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14999632361B55100F7DDEF /* Frontmatter.swift */; };
 		C154277423593B9700FD99A1 /* BuildFile in Frameworks */ = {isa = PBXBuildFile; productRef = C154277323593B9700FD99A1 /* SwiftPackageProductDependency */; };
 		C154277623594FBB00FD99A1 /* OpenCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = C154277523594FBB00FD99A1 /* OpenCommand.swift */; };
 		C18140E12356F684000A7CD9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18140E02356F684000A7CD9 /* main.swift */; };
@@ -45,6 +47,8 @@
 		C107FCD72359B839008EB8B4 /* ListCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCommand.swift; sourceTree = "<group>"; };
 		C10D094123586EBF000E4925 /* SwiftCLI+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SwiftCLI+Extensions.swift"; sourceTree = "<group>"; };
 		C112EF872359634A00A982FC /* Defaults+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Defaults+Extensions.swift"; sourceTree = "<group>"; };
+		C14999612361ACF000F7DDEF /* Worklog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Worklog.swift; sourceTree = "<group>"; };
+		C14999632361B55100F7DDEF /* Frontmatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Frontmatter.swift; sourceTree = "<group>"; };
 		C154277523594FBB00FD99A1 /* OpenCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenCommand.swift; sourceTree = "<group>"; };
 		C18140DD2356F684000A7CD9 /* worklog */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = worklog; sourceTree = BUILT_PRODUCTS_DIR; };
 		C18140E02356F684000A7CD9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -74,7 +78,9 @@
 			isa = PBXGroup;
 			children = (
 				87BBF4AC235B1B3300C46FB7 /* Config.swift */,
+				C14999632361B55100F7DDEF /* Frontmatter.swift */,
 				87BBF4AA235B193800C46FB7 /* Hugo.swift */,
+				C14999612361ACF000F7DDEF /* Worklog.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -205,10 +211,12 @@
 				C112EF882359634A00A982FC /* Defaults+Extensions.swift in Sources */,
 				87BBF4AD235B1B3300C46FB7 /* Config.swift in Sources */,
 				C18140E12356F684000A7CD9 /* main.swift in Sources */,
+				C14999622361ACF000F7DDEF /* Worklog.swift in Sources */,
 				C107FCD82359B839008EB8B4 /* ListCommand.swift in Sources */,
 				87BBF4AB235B193800C46FB7 /* Hugo.swift in Sources */,
 				C19AD40023588087007879F8 /* ConfigCommand.swift in Sources */,
 				C154277623594FBB00FD99A1 /* OpenCommand.swift in Sources */,
+				C14999642361B55100F7DDEF /* Frontmatter.swift in Sources */,
 				C19AD3F523587A86007879F8 /* Makefile in Sources */,
 				C10D094223586EBF000E4925 /* SwiftCLI+Extensions.swift in Sources */,
 				8703287D235AC85000931D17 /* BitbarCommand.swift in Sources */,

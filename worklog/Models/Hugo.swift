@@ -46,9 +46,10 @@ extension Hugo {
             .appendingPathExtension("markdown")
     }
 
-    func entries() throws -> [URL] {
+    func entries() throws -> [Worklog] {
         return try FileManager.default.subpathsOfDirectory(atPath: worklogPath.path) // [String]
             .map { worklogPath.appendingPathComponent($0) } // URL
             .filter { ["markdown", "md"].contains($0.pathExtension) }
+            .map { try Worklog(path: $0) }
     }
 }
