@@ -51,5 +51,7 @@ extension Hugo {
             .map { worklogPath.appendingPathComponent($0) } // URL
             .filter { ["markdown", "md"].contains($0.pathExtension) }
             .map { try Worklog(path: $0) }
+            // TODO Add better check for this
+            .filter { $0.frontmatter.date != nil }
     }
 }
